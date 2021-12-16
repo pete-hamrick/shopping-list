@@ -5,8 +5,7 @@ import ItemList from '../../components/ItemList/ItemList';
 const initialItems = [
   { id: 0, text: 'Cabbage', done: false },
   { id: 1, text: 'Carrot', done: false },
-  { id: 2, text: 'Ginger', done: false },
-  { id: 3, text: 'Onion', done: false },
+  { id: 2, text: 'Onion', done: false },
 ];
 
 function itemsReducer(items, action) {
