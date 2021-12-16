@@ -43,4 +43,22 @@ it('should edit and display the edited item', async () => {
 });
 
 // TODO deleting a list item
+it('should delete Ginger from the shopping list', async () => {
+  const itemInput = screen.getByLabelText('New Item');
+  const submitButton = screen.getByRole('button', { name: 'Add New Item' });
+
+  userEvent.type(itemInput, 'Ginger');
+  userEvent.click(submitButton);
+
+  const gingerItem = await screen.findByText('Ginger');
+  expect(gingerItem).toBeInTheDocument();
+
+  const deleteGingerButton = await screen.findByRole('button', {
+    name: 'delete-3',
+  });
+  userEvent.click(deleteGingerButton);
+
+  expect(gingerItem).not.toBeInTheDocument();
+});
+
 // TODO displaying the items of the list
