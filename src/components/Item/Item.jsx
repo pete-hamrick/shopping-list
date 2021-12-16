@@ -6,8 +6,10 @@ export default function Item({ value }) {
       <label htmlFor={value}>
         <input type="checkbox" id={value} name={value} value={value} />
         {value}
-      </label>{' '}
-      <button>Edit</button> <button>Delete</button>
+      </label>
+
+      <button>Edit</button>
+      <button>Delete</button>
     </>
   );
 }
