@@ -66,7 +66,7 @@ export default function ShoppingList() {
   return (
     <section>
       <h1>Shopping List!</h1>
-      <AddItem />
+      <AddItem onAdd={handleAddItem} />
       <ItemList items={items} onEdit={handleEdit} onDelete={handleDelete} />
     </section>
   );
