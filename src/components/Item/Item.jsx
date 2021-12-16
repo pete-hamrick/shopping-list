@@ -1,15 +1,21 @@
 import React from 'react';
 
-export default function Item({ value }) {
+export default function Item({ item, onEdit, onDelete }) {
   return (
     <>
-      <label htmlFor={value}>
-        <input type="checkbox" id={value} name={value} value={value} />
-        {value}
+      <label htmlFor={item}>
+        <input
+          type="checkbox"
+          id={item}
+          checked={item.done} /* need onChange for being checked */
+        />
+        {item.text}
       </label>
 
-      <button>Edit</button>
-      <button>Delete</button>
+      <button type="button">Edit</button>
+      <button type="button" onClick={() => onDelete(item.id)}>
+        Delete
+      </button>
     </>
   );
 }

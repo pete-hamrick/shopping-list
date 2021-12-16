@@ -1,17 +1,14 @@
 import React from 'react';
 import Item from '../Item/Item';
 
-const initialList = ['Cabbage', 'Carrot', 'Ginger', 'Onion'];
-
-export default function ItemList() {
+export default function ItemList({ items, onEdit, onDelete }) {
   return (
-    <div>
-      <h2>Hello from the list</h2>
-      {initialList.map((item) => (
-        <div key={item}>
-          <Item value={item} />
+    <>
+      {items.map((item) => (
+        <div key={item.id}>
+          <Item item={item} onEdit={onEdit} onDelete={onDelete} />
         </div>
       ))}
-    </div>
+    </>
   );
 }

@@ -12,7 +12,6 @@ const initialItems = [
 function itemsReducer(items, action) {
   switch (action.type) {
     case 'add': {
-      // spread all of our items from state inside an array and add our new item to the array
       return [
         ...items,
         {
@@ -23,7 +22,6 @@ function itemsReducer(items, action) {
       ];
     }
     case 'edit': {
-      // map over items, where id matches our itemId update the text
       return items.map((item) => {
         if (item.id === action.task.id) {
           return action.task;
@@ -32,7 +30,6 @@ function itemsReducer(items, action) {
       });
     }
     case 'delete': {
-      // return to state all but the item where the id matches our deleted id
       return items.filter((item) => item.id !== action.id);
     }
     default: {
@@ -44,11 +41,33 @@ function itemsReducer(items, action) {
 export default function ShoppingList() {
   const [items, dispatch] = useReducer(itemsReducer, initialItems);
 
+  const handleAddItem = (text) => {
+    dispatch({
+      type: 'add',
+      id: items.length,
+      text,
+    });
+  };
+
+  const handleEdit = (task) => {
+    dispatch({
+      type: 'edit',
+      task,
+    });
+  };
+
+  const handleDelete = (taskId) => {
+    dispatch({
+      type: 'delete',
+      id: taskId,
+    });
+  };
+
   return (
     <section>
       <h1>Shopping List!</h1>
       <AddItem />
-      <ItemList />
+      <ItemList items={items} onEdit={handleEdit} onDelete={handleDelete} />
     </section>
   );
 }
