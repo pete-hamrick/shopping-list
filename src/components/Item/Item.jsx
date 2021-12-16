@@ -35,12 +35,12 @@ export default function Item({ item, onEdit, onDelete }) {
   return (
     <>
       <label
-        htmlFor={item}
+        htmlFor={item.id}
         style={{ textDecoration: item.done ? 'line-through' : null }}
       >
         <input
           type="checkbox"
-          id={item}
+          id={item.id}
           checked={item.done}
           onChange={(e) => {
             onEdit({
