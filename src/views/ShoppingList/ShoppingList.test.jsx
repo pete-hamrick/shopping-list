@@ -7,16 +7,16 @@ beforeEach(() => {
   render(<ShoppingList />);
 });
 
-it('should render the shopping list like intended', () => {
-  const newItemLabel = screen.getByLabelText('New Item');
-  const submitButton = screen.getByRole('button', { name: 'Add New Item' });
+it('should render the initial shopping list', () => {
+  const cabbage = screen.getByText('Cabbage');
+  const carrot = screen.getByText('Carrot');
+  const onion = screen.getByText('Onion');
 
-  screen.debug();
-  expect(newItemLabel).toBeInTheDocument();
-  expect(submitButton).toBeInTheDocument();
+  expect(cabbage).toBeInTheDocument();
+  expect(carrot).toBeInTheDocument();
+  expect(onion).toBeInTheDocument();
 });
 
-// TODO adding to list
 it('should add a new item and display the added item', async () => {
   const itemInput = screen.getByLabelText('New Item');
   const submitButton = screen.getByRole('button', { name: 'Add New Item' });
@@ -27,7 +27,6 @@ it('should add a new item and display the added item', async () => {
   await screen.findByText('Ginger');
 });
 
-// TODO editing a list item
 it('should edit and display the edited item', async () => {
   const editButton = screen.getByRole('button', { name: 'edit-0' });
   userEvent.click(editButton);
@@ -42,7 +41,6 @@ it('should edit and display the edited item', async () => {
   await screen.findByText('Cabbage x2');
 });
 
-// TODO deleting a list item
 it('should delete Ginger from the shopping list', async () => {
   const itemInput = screen.getByLabelText('New Item');
   const submitButton = screen.getByRole('button', { name: 'Add New Item' });
@@ -60,5 +58,3 @@ it('should delete Ginger from the shopping list', async () => {
 
   expect(gingerItem).not.toBeInTheDocument();
 });
-
-// TODO displaying the items of the list
