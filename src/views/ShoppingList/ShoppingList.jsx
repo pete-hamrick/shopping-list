@@ -1,6 +1,7 @@
 import React, { useReducer } from 'react';
 import AddItem from '../../components/AddItem/AddItem';
 import ItemList from '../../components/ItemList/ItemList';
+import './ShoppingList.css';
 
 const initialItems = [
   { id: 0, text: 'Cabbage', done: false },
@@ -65,7 +66,7 @@ export default function ShoppingList() {
   return (
     <section>
       <h1>Shopping List!</h1>
-      <AddItem onAdd={handleAddItem} />
+      <AddItem className="input" onAdd={handleAddItem} />
       <ItemList items={items} onEdit={handleEdit} onDelete={handleDelete} />
     </section>
   );

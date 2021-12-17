@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './Item.css';
 
 export default function Item({ item, onEdit, onDelete }) {
   const [editing, setEditing] = useState(false);
@@ -42,7 +43,7 @@ export default function Item({ item, onEdit, onDelete }) {
   }
 
   return (
-    <>
+    <article>
       <label
         htmlFor={item.id}
         style={{ textDecoration: item.done ? 'line-through' : null }}
@@ -68,6 +69,6 @@ export default function Item({ item, onEdit, onDelete }) {
       >
         Delete
       </button>
-    </>
+    </article>
   );
 }
