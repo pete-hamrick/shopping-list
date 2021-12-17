@@ -11,7 +11,7 @@ export default function AddItem({ onAdd }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label htmlFor="newItem">Add New Item</label>
+      <label htmlFor="newItem">New Item</label>
       <input
         type="text"
         id="newItem"
