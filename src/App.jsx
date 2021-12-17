@@ -1,3 +1,11 @@
+import React from 'react';
+import ShoppingList from './views/ShoppingList/ShoppingList';
+import './App.css';
+
 export default function App() {
-  return <h1>Hello World</h1>;
+  return (
+    <main>
+      <ShoppingList />
+    </main>
+  );
 }
